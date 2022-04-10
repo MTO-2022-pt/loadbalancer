@@ -33,6 +33,18 @@ class ServerLoadBalancerTest {
         assertThat("the server should contain vm", theServer.contains(theVm));
     }
 
+    private Vm[] aListOfVmsWith(Vm... vms) {
+        return vms;
+    }
+
+    private Vm a(VmBuilder builder) {
+        return builder.build();
+    }
+
+    private VmBuilder vm() {
+        return new VmBuilder();
+    }
+
     private void balance(Server[] servers, Vm[] vms) {
         new ServerLoadBalancer().balance(servers, vms);
     }
